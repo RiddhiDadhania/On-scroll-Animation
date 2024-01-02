@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .hide-over,
+        .hide-over2 {
+            background: url(Rectangle-32.png) no-repeat;
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            transition: 0.9s ease-in-out;
+            -webkit-transition: 0.9s ease-in-out;
+            /* overflow: hidden; */
+            z-index: 1;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .ct-overlay,
+        .ct-overlay2,
+        .ct-overlay3,
+        .ct-overlay4 {
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .ct-left,
+        .ct-right {
+            width: 48%;
+            position: relative;
+        }
+
+        .main-wrp {
+            max-width: 1350px;
+            margin: auto;
+        }
+
+        .spacing {
+            margin-top: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-wrp">
+        <div class="ct-overlay spacing">
+            <div class="ct-left">
+                <div class="hide-over"></div>
+                <img src="Rectangle-33.png" class="overlay1">
+            </div>
+            <div class="ct-right">
+                <div class="hide-over2"></div>
+                <img src="Rectangle-33.png" class="overlay2">
+            </div>
+        </div>
+        <div class="ct-overlay2 spacing">
+            <div class="ct-left">
+                <div class="hide-over"></div>
+                <img src="Rectangle-33.png" class="overlay1">
+            </div>
+            <div class="ct-right">
+                <div class="hide-over2"></div>
+                <img src="Rectangle-33.png" class="overlay2">
+            </div>
+        </div>
+        <div class="ct-overlay3 spacing">
+            <div class="ct-left">
+                <div class="hide-over"></div>
+                <img src="Rectangle-33.png" class="overlay1">
+            </div>
+            <div class="ct-right">
+                <div class="hide-over2"></div>
+                <img src="Rectangle-33.png" class="overlay2">
+            </div>
+        </div>
+        <div class="ct-overlay4 spacing">
+            <div class="ct-left">
+                <div class="hide-over"></div>
+                <img src="Rectangle-33.png" class="overlay1">
+            </div>
+            <div class="ct-right">
+                <div class="hide-over2"></div>
+                <img src="Rectangle-33.png" class="overlay2">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    $(window).scroll(function (event) {
+        var scroll = $(window).scrollTop();
+        var documentHeight = $(window).height() / 2;
+        // 		alert(documentHeight);
+        // 		if ($(window).width() > 768) {
+
+        if (scroll >= $('.ct-overlay').offset().top - documentHeight) {
+            $('.ct-overlay').addClass('ok');
+            $('.ok .hide-over').css('transform', 'translateX(-110%)');
+            $('.ok .hide-over2').css('transform', 'translateX(110%)');
+        }
+
+        if (scroll >= $('.ct-overlay2').offset().top - documentHeight) {
+            $('.ct-overlay2').addClass('ok');
+        }
+        if (scroll >= $('.ct-overlay3').offset().top - documentHeight) {
+            $('.ct-overlay3').addClass('ok');
+        }
+        if (scroll >= $('.ct-overlay4').offset().top - documentHeight) {
+            $('.ct-overlay4').addClass('ok');
+        }
+
+        //             }//end if
+    });
+
+</script>
+
+<script>
+    jQuery(function ($) {
+        var overlayheight = $(".overlay2 img").height();
+        $('.hide-over2 , .hide-over').css('height', overlayheight);
+    });
+</script>
+
+
+</html>
